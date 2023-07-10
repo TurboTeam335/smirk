@@ -1,5 +1,7 @@
 import React from 'react';
 import StockData from './StockData';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import "../styles/index.css"
 
 class RandoStock extends React.Component {
   constructor(props) {

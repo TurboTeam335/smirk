@@ -1,3 +1,7 @@
+
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Montserrat&display=swap');
+
+
 header {
   font-family: 'Montserrat', sans-serif;
   }
@@ -60,3 +64,12 @@ header {
     .rdm-percent-change {
       padding: 10px;
     }
+
+    .up-arrow {
+      color: green;
+    }
+    
+    .down-arrow {
+      color: red;
+    }
+    
