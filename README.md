@@ -1,51 +1,56 @@
 # Stock Exchange API Website (SMIRK)
   Stock Market Insights & Ridiculous Knowledge
 
-This is a website that uses a stock exchange API to display real-time stock prices and other relevant information about different stocks. The website is designed to help users stay up-to-date with the latest stock market trends and make informed investment decisions.
+Smirk is a React application that allows users to search for stock data, add stocks to their personal list, and view the latest tweets from a specific Twitter account.
 
-## Description 
-
-The purpose of this project is to provide basic stock data and to provide a basis for suggested stocks as a starting point. It includes a twitter feed to provide the stocks that your congressmen and congresswomen are trading on the day to day.
-
-## API Used
-
-The website uses the [Polygon API](https://api.polygon.io/) to retrieve real-time stock prices and other relevant information. Polygon API is a leading provider of financial market data and offers a wide range of APIs to retrieve different types of financial market data.
-Twitter: https://twitter.com/capitol2iq/status/1644433427259617296?ref_src=twsrc%5Etfw%7Ctwcamp%5Eembeddedtimeline%7Ctwterm%5Escreen-name%3Acapitol2iq%7Ctwcon%5Es1
+![Portfolio Preview](./src/assets/smirk.png)
 
 ## Features
 
-The website offers the following features:
-
-- Real-time stock prices: Users can view real-time stock prices of different companies listed on different stock exchanges.
-- Stock news: Users can view the latest news related to a random stock via twitter.
--Review the 'Capitol Trades' Twitter feed to see what stock Congress is trading that day.
-- Add: Users can add a stock of their choice to receive a daily update of the current price.
+- Search for stocks by ticker symbol
+- Add stocks to your personal list
+- Remove stocks from your personal list
+- View the latest tweets from a specific Twitter account
 
 ## Technologies Used
-
-The website is built using the following technologies:
-
-- HTML
+- React.js
+- Bootstrap
+- React-Bootstrap
 - CSS
-- JavaScript
 - Polygon API
-- Twitter
+- Twitter API
 
+## Installation
+
+The application is deployed on GitHub Pages. You can access it using the following link: [S.M.I.R.K. Repo](https://github.com/TurboTeam335/smirk)
+
+To install the application, follow the steps below:
+
+1. Clone the repository to your local machine
+2. Navigate to the cloned repository
+3. Run `npm install` to install all necessary dependencies
+4. Run `npm start` to start the application
+
+The application will be available on `http://localhost:3000/`.
+
+## Usage
+You can access the deployed site using the following link: [S.M.I.R.K.]()
+
+- Enter a ticker symbol into the search bar and click 'Search' to view stock data.
+- Click 'Add to My Stocks' to add the stock to your personal list.
+- Click 'Remove' next to a stock in your list to remove it.
 
 ## Contributing
 
 Contributing to this project:
 
-David McDaniel,
-Daniel Mascali,
-Beverly Long,
-Jackson Smith,
-Marshall Smith
-
-Caleb Crum,
-Chat GPT,
-Google
+* David McDaniel
+* Daniel Mascali
+* Beverly Long
+* Jackson Smith
+* Marshall Smith
+* Caleb Crum
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details.
+[MIT](https://choosealicense.com/licenses/mit/)
