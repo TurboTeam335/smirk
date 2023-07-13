@@ -12,6 +12,13 @@ class App extends React.Component {
     searchValue: '',
   };
 
+  componentDidMount() {
+    const stocksFromLocalStorage = JSON.parse(localStorage.getItem("stocks"));
+    if (stocksFromLocalStorage) {
+      this.setState({ stocks: stocksFromLocalStorage });
+    }
+  }
+
   handleSearch = (searchValue) => {
     // Add your search functionality here
     this.setState({ searchValue });
@@ -39,7 +46,7 @@ class App extends React.Component {
     return (
       <div>
         <Header />
-        <main className="container my-4">
+        <main className="container my-4 bg">
           <div className="row">
           <SearchBar onSearch={this.handleSearch} onAddStock={this.handleAddStock} />
             <Twitter />

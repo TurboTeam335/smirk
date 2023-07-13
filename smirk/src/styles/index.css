@@ -1,75 +1,91 @@
-
-  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Montserrat&display=swap');
-
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Montserrat&display=swap");
 
 header {
-  font-family: 'Montserrat', sans-serif;
-  }
-  
-  h1, p {
-  margin: 0;
-  }
-  
-  .IR {
-  color: rgb(206, 206, 206);
-  }
-  
-  body {
-      background-image: url(https://mail.google.com/mail/u/0?ui=2&ik=879c1bbcaf&attid=0.1&permmsgid=msg-f:1762476371137277689&th=187592ebeaa82ef9&view=att&disp=safe&realattid=f_lg5tuip10);
-      background-size: cover;
-      background-position: center center;
-  }
-  
-  footer {
-      text-align: center;
-  }
-  
-  footer p {
-      font-size: 10000px;
-  } 
-  
-  .card {
-      border: 1px solid #ccc;
-      border-radius: 8px;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-      padding: 12px;
-      max-width: 800px;
-      margin: 0 auto;
-    }
-    
-    .card-title {
-      font-size: 1.2rem;
-    }
-    
-    .twitter-timeline {
-      font-size: 0.8rem;
-      height: 300px;
-      overflow: scroll;
-    }
-    .card-random-container {
-      position: fixed;
-      top: 200px;
-      left: 100px;
-      display: flex;
-    }
-  
-    .card-random {
-      display: flex;
-      flex-direction: column;
-    }
-  
-    .rdm-ticker-name, 
-    .rdm-value,
-    .rdm-value-change,
-    .rdm-percent-change {
-      padding: 10px;
-    }
+  font-family: "Montserrat", sans-serif;
+}
 
-    .up-arrow {
-      color: green;
-    }
-    
-    .down-arrow {
-      color: red;
-    }
-    
+h1,
+p {
+  margin: 0;
+}
+
+.IR {
+  color: #ccc;
+}
+
+
+body {
+  background-image: url(https://mail.google.com/mail/u/0?ui=2&ik=879c1bbcaf&attid=0.1&permmsgid=msg-f:1762476371137277689&th=187592ebeaa82ef9&view=att&disp=safe&realattid=f_lg5tuip10);
+  background-size: cover;
+  background-position: center center;
+}
+
+footer {
+  text-align: center;
+}
+
+footer p {
+  font-size: 10000px;
+}
+
+.card {
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  padding: 12px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.card-title {
+  font-size: 1.2rem;
+}
+
+.twitter-timeline {
+  font-size: 0.8rem;
+  height: 300px;
+  overflow: scroll;
+}
+.card-random-container {
+  position: fixed;
+  top: 200px;
+  left: 100px;
+  display: flex;
+}
+
+.card-random {
+  display: flex;
+  flex-direction: column;
+}
+
+.rdm-ticker-name,
+.rdm-value,
+.rdm-value-change,
+.rdm-percent-change {
+  padding: 10px;
+}
+
+.up-arrow {
+  color: green;
+}
+
+.down-arrow {
+  color: red;
+}
+
+.button {
+  background-color: #cc5500;
+  color: white;
+  border: none;
+  box-shadow: 1px 8px 15px rgba(0, 0, 0, 0.1);
+  transition: all 0.2s ease 0s;
+  border-radius: 5px;
+}
+
+.button:hover {
+  background-color: white;
+  color: #cc5500;
+  border: 1px solid #cc5500;
+  box-shadow: 0px 15px 20px rgba(0, 0, 0, 0.2);
+}
+

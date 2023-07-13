@@ -8,6 +8,7 @@ class SearchBar extends React.Component {
     this.state = {
       searchValue: "",
       stockData: null,
+      errorMessage: "",
     };
   }
 
@@ -52,68 +53,93 @@ class SearchBar extends React.Component {
         percChanged: (((dat.c - dat.o) / dat.o) * 100).toFixed(2) + "%",
       };
 
-      this.setState({ stockData: parsedData });
+      this.setState({ stockData: parsedData, errorMessage: "" });
     } catch (err) {
-      alert("Invalid Ticker, please search again.");
+      this.setState({
+        errorMessage: "Invalid Ticker, please search again.",
+        stockData: null,
+      });
     }
   };
 
   render() {
-    const { searchValue, stockData } = this.state;
-
+    const { searchValue, stockData, errorMessage } = this.state;
+  
     return (
       <div className="col-md-4 mb-3">
-        <div className="input-group">
-          <input
-            type="text"
-            className="form-control"
-            id="searchStocksInput"
-            placeholder="Search stocks"
-            aria-label="Search stocks"
-            aria-describedby="button-addon2"
-            value={searchValue}
-            onChange={this.handleInputChange}
-          />
-
-          <button
-            className="btn btn-primary"
-            type="button"
-            id="button-addon2"
-            onClick={this.handleSearch}
-          >
-            Search
-          </button>
-        </div>
-
-        {stockData && (
-          <div className="card-body">
-            <div>
-              <div>Price: {stockData.price}</div>
-              <div>Previous Price: {stockData.prevPrice}</div>
-              <div>Points Changed: {stockData.pointsChanged}</div>
-              <div>
-                Percentage Changed: {stockData.percChanged}{" "}
-                <span
-                  className={
-                    stockData.pointsChanged > 0 ? "up-arrow" : "down-arrow"
-                  }
-                >
-                  {stockData.pointsChanged > 0 ? "↑" : "↓"}
-                </span>
-              </div>
-            </div>
+        <form
+          onSubmit={(e) => {
+            e.preventDefault();
+            this.handleSearch();
+          }}
+        >
+          <div className="input-group mb-3">
+            <input
+              type="text"
+              className="form-control"
+              id="searchStocksInput"
+              placeholder="Search stocks"
+              aria-label="Search stocks"
+              aria-describedby="button-addon2"
+              value={searchValue}
+              onChange={this.handleInputChange}
+            />
+  
             <button
-              className="btn btn-success"
+              className="button"
               type="button"
-              onClick={() => this.props.onAddStock(this.state.stockData)}
+              id="button-addon2"
+              onClick={this.handleSearch}
             >
-              Add to My Stocks
+              Search
             </button>
+          </div>
+        </form>
+  
+        {(stockData || errorMessage) && (
+          <div className="card shadow bg-dark bg-gradient text-white">
+            <div className="card-body ">
+              {stockData ? (
+                <>
+                  <h5 className="card-title">{stockData.ticker}</h5>
+                  <p className="card-text">
+                    <div>Price: {stockData.price}</div>
+                    <div>Previous Price: {stockData.prevPrice}</div>
+                    <div>Points Changed: {stockData.pointsChanged}</div>
+                    <div>
+                      Percentage Changed: {stockData.percChanged}{" "}
+                      <span
+                        className={
+                          stockData.pointsChanged > 0 ? "up-arrow" : "down-arrow"
+                        }
+                      >
+                        {stockData.pointsChanged > 0 ? "↑" : "↓"}
+                      </span>
+                    </div>
+                  </p>
+                  <button
+                    className="button"
+                    type="button"
+                    onClick={() => this.props.onAddStock(this.state.stockData)}
+                  >
+                    Add to My Stocks
+                  </button>
+                </>
+              ) : (
+                errorMessage && (
+                  <p style={{ fontWeight: "bold", fontSize: "1.5em" }}>
+                    {errorMessage}
+                  </p>
+                )
+              )}
+            </div>
           </div>
         )}
       </div>
     );
   }
+
 }
+
 
 export default SearchBar;

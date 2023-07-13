@@ -4,28 +4,12 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "../styles/index.css";
 
 class MyStocks extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      stocks: this.getSavedStocks(),
-    };
-    this.removeStock = this.removeStock.bind(this);
-  }
-
-  getSavedStocks() {
-    let savedStocks = JSON.parse(localStorage.getItem("stocks"));
-    return savedStocks ? savedStocks : [];
-  }
-
   removeStock(ticker) {
-    let stocks = this.state.stocks;
-    stocks = stocks.filter(stock => stock !== ticker);
-    this.setState({ stocks: stocks });
-    localStorage.setItem("stocks", JSON.stringify(stocks));
+    this.props.removeStock(ticker); 
   }
 
   render() {
-    const { stocks } = this.state;
+    const { stocks } = this.props; 
   
     return (
       <div className="row mt-4 w-100">
@@ -54,7 +38,7 @@ class MyStocks extends React.Component {
                     </span>
                   </td>
                   <td>
-                    <button className="btn btn-danger" onClick={() => this.removeStock(stock.ticker)}>
+                    <button className="button" onClick={() => this.removeStock(stock.ticker)}>
                       Remove
                     </button>
                   </td>
@@ -66,7 +50,6 @@ class MyStocks extends React.Component {
       </div>
     );
   }
-  
 }
 
 export default MyStocks;
