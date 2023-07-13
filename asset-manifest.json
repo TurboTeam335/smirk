@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/smirk/static/css/main.39076b6d.css",
+    "main.js": "/smirk/static/js/main.27dd10df.js",
+    "index.html": "/smirk/index.html",
+    "main.39076b6d.css.map": "/smirk/static/css/main.39076b6d.css.map",
+    "main.27dd10df.js.map": "/smirk/static/js/main.27dd10df.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.39076b6d.css",
+    "static/js/main.27dd10df.js"
+  ]
+}
