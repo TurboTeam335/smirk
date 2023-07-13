@@ -3,7 +3,7 @@
 
 Smirk is a React application that allows users to search for stock data, add stocks to their personal list, and view the latest tweets from a specific Twitter account.
 
-![Portfolio Preview](./src/assets/smirk.png)
+![Portfolio Preview](../smirk/smirk/src/assets/smirk.png)
 
 ## Features
 
@@ -34,7 +34,7 @@ To install the application, follow the steps below:
 The application will be available on `http://localhost:3000/`.
 
 ## Usage
-You can access the deployed site using the following link: [S.M.I.R.K.]()
+You can access the deployed site using the following link: [S.M.I.R.K.](https://turboteam335.github.io/smirk/)
 
 - Enter a ticker symbol into the search bar and click 'Search' to view stock data.
 - Click 'Add to My Stocks' to add the stock to your personal list.
