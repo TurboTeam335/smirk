@@ -5,6 +5,7 @@ import MyStocks from './components/MyStocks';
 import RandomStock from './components/RandomStock';
 import Header from './components/Header'
 import Twitter from './components/Twitter'
+import Footer from './components/Footer'
 
 class App extends React.Component {
   state = {
@@ -44,7 +45,7 @@ class App extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className="background">
         <Header />
         <main className="container my-4 bg">
           <div className="row">
@@ -52,7 +53,7 @@ class App extends React.Component {
             <Twitter />
           </div>
           <MyStocks stocks={this.state.stocks} removeStock={this.removeStock} />
-
+          <Footer />
         </main>
       </div>
     );

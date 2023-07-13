@@ -12,12 +12,12 @@ class MyStocks extends React.Component {
     const { stocks } = this.props; 
   
     return (
-      <div className="row mt-4 w-100">
-        <div className="col">
+      <div className="row mt-4 w-100 ">
+        <div className="col card card-gradient">
           <h2>My Stocks</h2>
-          <table className="table">
+          <table className="table ">
             <thead>
-              <tr>
+              <tr className="my-stocks-list">
                 <th>Ticker Name</th>
                 <th>Value</th>
                 <th>Points Changed</th>

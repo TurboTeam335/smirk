@@ -1,23 +1,15 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Montserrat&display=swap");
 
-header {
-  font-family: "Montserrat", sans-serif;
-}
-
-h1,
-p {
-  margin: 0;
-}
-
-.IR {
-  color: #ccc;
-}
-
-
+/* General */
 body {
-  background-image: url(https://mail.google.com/mail/u/0?ui=2&ik=879c1bbcaf&attid=0.1&permmsgid=msg-f:1762476371137277689&th=187592ebeaa82ef9&view=att&disp=safe&realattid=f_lg5tuip10);
-  background-size: cover;
-  background-position: center center;
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  overflow: auto;
+}
+
+html {
+  height: 100%;
 }
 
 footer {
@@ -28,6 +20,21 @@ footer p {
   font-size: 10000px;
 }
 
+h1, p {
+  margin: 0;
+}
+
+header {
+  font-family: "Montserrat", sans-serif;
+}
+
+/* Background */
+.background {
+  background-color: #f5f5f7;
+  font-family: "Montserrat", sans-serif;
+}
+
+/* Card */
 .card {
   border: 1px solid #ccc;
   border-radius: 8px;
@@ -41,11 +48,6 @@ footer p {
   font-size: 1.2rem;
 }
 
-.twitter-timeline {
-  font-size: 0.8rem;
-  height: 300px;
-  overflow: scroll;
-}
 .card-random-container {
   position: fixed;
   top: 200px;
@@ -58,6 +60,14 @@ footer p {
   flex-direction: column;
 }
 
+/* Twitter */
+.twitter-timeline {
+  font-size: 0.8rem;
+  height: 300px;
+  overflow: scroll;
+}
+
+/* Random Stock */
 .rdm-ticker-name,
 .rdm-value,
 .rdm-value-change,
@@ -65,14 +75,20 @@ footer p {
   padding: 10px;
 }
 
+/* Arrow */
 .up-arrow {
   color: green;
+  font-size: 25px;
+  font-weight: bolder;
 }
 
 .down-arrow {
-  color: red;
+  color: red; 
+  font-size: 25px;
+  font-weight: bolder;
 }
 
+/* Button */
 .button {
   background-color: #cc5500;
   color: white;
@@ -89,3 +105,14 @@ footer p {
   box-shadow: 0px 15px 20px rgba(0, 0, 0, 0.2);
 }
 
+/* Text Formatting */
+.IR {
+  color: #ccc;
+}
+
+.ticker,
+.card-title,
+.my-stocks-list {
+  font-weight: bolder;
+  font-size: larger;
+}

@@ -97,11 +97,12 @@ class SearchBar extends React.Component {
         </form>
   
         {(stockData || errorMessage) && (
-          <div className="card shadow bg-dark bg-gradient text-white">
+         <div className="card">
+
             <div className="card-body ">
               {stockData ? (
                 <>
-                  <h5 className="card-title">{stockData.ticker}</h5>
+                  <h5 className="card-title ticker">{stockData.ticker}</h5>
                   <p className="card-text">
                     <div>Price: {stockData.price}</div>
                     <div>Previous Price: {stockData.prevPrice}</div>
