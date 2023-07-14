@@ -1,6 +1,7 @@
 import React from "react";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import "../styles/index.css"
+import SimpleLineChart from './SimpleLineChart';
 
 class StockData extends React.Component {
   constructor(props) {
@@ -16,21 +17,25 @@ class StockData extends React.Component {
 
   fetchData = async (ticker) => {
     const key = "EsYRiuO5UyJ3IGNWDCggwH54klr9JIi8";
-    let today = new Date();
-    let day = today.getDay();
-    let adj = 1;
-    if (day === 0) adj = 2;
-    if (day === 1) adj = 3;
+    // let today = new Date();
+    // let day = today.getDay();
+    // let adj = 1;
+    // if (day === 0) adj = 2;
+    // if (day === 1) adj = 3;
   
-    let dd = String(today.getDate() - adj).padStart(2, "0");
-    let mm = String(today.getMonth() + 1).padStart(2, "0");
-    let yyyy = today.getFullYear();
+    // let dd = String(today.getDate() - adj).padStart(2, "0");
+    // let mm = String(today.getMonth() + 1).padStart(2, "0");
+    // let yyyy = today.getFullYear();
   
-    today = `${yyyy}-${mm}-${dd}`;
+    // today = `${yyyy}-${mm}-${dd}`;
   
+    const endDate = new Date();
+    const startDate = new Date();
+    startDate.setDate(endDate.getDate() - 30); // for example, 30 days ago
+
     const url =
       `https://api.polygon.io/v2/aggs/ticker/${ticker}/range/1/day/` +
-      `${today}/${today}?adjusted=true&sort=asc&limit=120&apiKey=${key}`;
+      `${startDate.toISOString().slice(0,10)}/${endDate.toISOString().slice(0,10)}?adjusted=true&sort=asc&limit=120&apiKey=${key}`;
   
     try {
       const response = await fetch(url);
@@ -39,16 +44,14 @@ class StockData extends React.Component {
       if (data.status === "ERROR") {
         throw new Error("Invalid Ticker");
       }
-  
-      const dat = data.results[0];
-      const parsedData = {
-        price: dat.c,
-        prevPrice: dat.o,
-        pointsChanged: (dat.c - dat.o).toFixed(2),
-        percChanged: (((dat.c - dat.o) / dat.o) * 100).toFixed(2) + "%",
-      };
-  
-      this.setState({ data: parsedData });
+
+      // Format the data for Recharts
+      const formattedData = data.results.map(result => ({
+        date: new Date(result.t).toISOString().slice(0,10), // convert timestamp to date
+        price: result.c,
+      }));
+
+      this.setState({ data: formattedData });
     } catch (error) {
       console.error("Error:", error);
     }
@@ -64,10 +67,7 @@ class StockData extends React.Component {
 
     return (
       <div>
-        <div>Price: {data.price}</div>
-        <div>Previous Price: {data.prevPrice}</div>
-        <div>Points Changed: {data.pointsChanged}</div>
-        <div>Percentage Changed: {data.percChanged}</div>
+        <SimpleLineChart data={data} />
       </div>
     );
   }

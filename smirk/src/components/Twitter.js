@@ -6,8 +6,8 @@ import "../styles/index.css";
 class TwitterCard extends React.Component {
   render() {
     return (
-      <div className="col-md-8 mb-3">
-        <div className="card">
+      <div className="col-md-8 col-sm-12 mb-3">
+        <div className="card bg-dark bg-gradient">
           <div className="card-body">
             <h5 className="card-title"></h5>
             <div id="tweet-container" className="twitter-timeline bg-dark bg-gradient">

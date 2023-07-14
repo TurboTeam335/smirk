@@ -5,7 +5,7 @@ import "../styles/index.css"
 
 function Header() {
   return (
-    <header class="bg-dark gradient  py-3">
+    <header class="bg-dark bg-gradient py-3">
     <div
       class="container d-flex flex-column flex-md-row align-items-center justify-content-between"
     >

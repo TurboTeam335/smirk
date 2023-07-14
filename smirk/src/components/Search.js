@@ -1,6 +1,7 @@
 import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "../styles/index.css";
+import SimpleLineChart from "./SimpleLineChart";
 
 class SearchBar extends React.Component {
   constructor(props) {
@@ -64,11 +65,11 @@ class SearchBar extends React.Component {
 
   render() {
     const { searchValue, stockData, errorMessage } = this.state;
-  
+
     return (
-      <div className="col-md-4 mb-3">
+      <div className="col-md-4 mb-3 col-sm-12">
         <form
-          onSubmit={(e) => {
+          onSubmit={e => {
             e.preventDefault();
             this.handleSearch();
           }}
@@ -84,7 +85,7 @@ class SearchBar extends React.Component {
               value={searchValue}
               onChange={this.handleInputChange}
             />
-  
+
             <button
               className="button"
               type="button"
@@ -95,11 +96,10 @@ class SearchBar extends React.Component {
             </button>
           </div>
         </form>
-  
-        {(stockData || errorMessage) && (
-         <div className="card">
 
-            <div className="card-body ">
+        {(stockData || errorMessage) && (
+          <div className="card bg-dark bg-gradient text-white">
+            <div className="card-body">
               {stockData ? (
                 <>
                   <h5 className="card-title ticker">{stockData.ticker}</h5>
@@ -111,20 +111,29 @@ class SearchBar extends React.Component {
                       Percentage Changed: {stockData.percChanged}{" "}
                       <span
                         className={
-                          stockData.pointsChanged > 0 ? "up-arrow" : "down-arrow"
+                          stockData.pointsChanged > 0
+                            ? "up-arrow"
+                            : "down-arrow"
                         }
                       >
                         {stockData.pointsChanged > 0 ? "↑" : "↓"}
                       </span>
                     </div>
+                    <div className="mt-3 chart-small">
+                      <SimpleLineChart ticker={stockData.ticker} />
+                    </div>
                   </p>
-                  <button
-                    className="button"
-                    type="button"
-                    onClick={() => this.props.onAddStock(this.state.stockData)}
-                  >
-                    Add to My Stocks
-                  </button>
+                  <div className="d-flex justify-content-center">
+                    <button
+                      className="button"
+                      type="button"
+                      onClick={() =>
+                        this.props.onAddStock(this.state.stockData)
+                      }
+                    >
+                      Add to My Stocks
+                    </button>
+                  </div>
                 </>
               ) : (
                 errorMessage && (
@@ -139,8 +148,6 @@ class SearchBar extends React.Component {
       </div>
     );
   }
-
 }
-
 
 export default SearchBar;

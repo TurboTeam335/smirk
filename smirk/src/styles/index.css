@@ -116,3 +116,21 @@ header {
   font-weight: bolder;
   font-size: larger;
 }
+
+.chart-container {
+  /* transform: scale(0.5); */
+  transition: all 0.3s ease-in-out;
+}
+
+.chart-container:hover {
+  transform: scale(2);
+}
+
+.chart-small {
+  max-width: 100%;
+  height: 100%;
+  /* overflow: hidden; */
+}
+
+
+
