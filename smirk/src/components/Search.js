@@ -68,7 +68,7 @@ class SearchBar extends React.Component {
     const { searchValue, stockData, errorMessage } = this.state;
   
     return (
-      <div className="col-lg-12 mb-3">
+      <div className="col-md-4 mb-3 col-sm-12">
         <form
           onSubmit={e => {
             e.preventDefault();
@@ -122,9 +122,9 @@ class SearchBar extends React.Component {
                         </span>
                       </p>
                     </div>
-                    <div className="chart-container">
+                    {/* <div className="chart-container">
                       <StockData ticker={stockData.ticker} />
-                    </div>
+                    </div> */}
                   </div>
                   <div className="d-flex justify-content-center">
                     <button

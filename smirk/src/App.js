@@ -50,7 +50,7 @@ class App extends React.Component {
         <main className="container my-4 bg">
           <div className="row">
           <SearchBar onSearch={this.handleSearch} onAddStock={this.handleAddStock} />
-            {/* <Twitter /> */}
+            <Twitter />
           </div>
           <MyStocks stocks={this.state.stocks} removeStock={this.removeStock} />
           <Footer />
