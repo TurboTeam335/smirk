@@ -31,12 +31,12 @@ class StockData extends React.Component {
   
     const endDate = new Date();
     const startDate = new Date();
-    startDate.setDate(endDate.getDate() - 30); // for example, 30 days ago
+    startDate.setDate(endDate.getDate() - 30); // for example, 7 days ago
 
-    const url =
-      `https://api.polygon.io/v2/aggs/ticker/${ticker}/range/1/day/` +
-      `${startDate.toISOString().slice(0,10)}/${endDate.toISOString().slice(0,10)}?adjusted=true&sort=asc&limit=120&apiKey=${key}`;
-  
+  const url =
+    `https://api.polygon.io/v2/aggs/ticker/${ticker}/range/1/day/` +
+    `${startDate.toISOString().slice(0,10)}/${endDate.toISOString().slice(0,10)}?adjusted=true&sort=asc&limit=120&apiKey=${key}`;
+
     try {
       const response = await fetch(url);
       const data = await response.json();

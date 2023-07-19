@@ -2,6 +2,7 @@ import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "../styles/index.css";
 import SimpleLineChart from "./SimpleLineChart";
+import StockData from './StockData';
 
 class SearchBar extends React.Component {
   constructor(props) {
@@ -65,16 +66,16 @@ class SearchBar extends React.Component {
 
   render() {
     const { searchValue, stockData, errorMessage } = this.state;
-
+  
     return (
-      <div className="col-md-4 mb-3 col-sm-12">
+      <div className="col-lg-12 mb-3">
         <form
           onSubmit={e => {
             e.preventDefault();
             this.handleSearch();
           }}
         >
-          <div className="input-group mb-3">
+          <div className="input-group col-lg-12 mb-3">
             <input
               type="text"
               className="form-control"
@@ -85,7 +86,7 @@ class SearchBar extends React.Component {
               value={searchValue}
               onChange={this.handleInputChange}
             />
-
+  
             <button
               className="button"
               type="button"
@@ -96,33 +97,35 @@ class SearchBar extends React.Component {
             </button>
           </div>
         </form>
-
+  
         {(stockData || errorMessage) && (
           <div className="card bg-dark bg-gradient text-white">
             <div className="card-body">
               {stockData ? (
                 <>
                   <h5 className="card-title ticker">{stockData.ticker}</h5>
-                  <p className="card-text">
-                    <div>Price: {stockData.price}</div>
-                    <div>Previous Price: {stockData.prevPrice}</div>
-                    <div>Points Changed: {stockData.pointsChanged}</div>
-                    <div>
-                      Percentage Changed: {stockData.percChanged}{" "}
-                      <span
-                        className={
-                          stockData.pointsChanged > 0
-                            ? "up-arrow"
-                            : "down-arrow"
-                        }
-                      >
-                        {stockData.pointsChanged > 0 ? "↑" : "↓"}
-                      </span>
+                  <div className="card-text d-flex justify-content-between">
+                    <div className="stock-info">
+                      <p>Price: {stockData.price}</p>
+                      <p>Previous Price: {stockData.prevPrice}</p>
+                      <p>Points Changed: {stockData.pointsChanged}</p>
+                      <p>
+                        Percentage Changed: {stockData.percChanged}{" "}
+                        <span
+                          className={
+                            stockData.pointsChanged > 0
+                              ? "up-arrow"
+                              : "down-arrow"
+                          }
+                        >
+                          {stockData.pointsChanged > 0 ? "↑" : "↓"}
+                        </span>
+                      </p>
                     </div>
-                    <div className="mt-3 chart-small">
-                      <SimpleLineChart ticker={stockData.ticker} />
+                    <div className="chart-container">
+                      <StockData ticker={stockData.ticker} />
                     </div>
-                  </p>
+                  </div>
                   <div className="d-flex justify-content-center">
                     <button
                       className="button"
@@ -148,6 +151,7 @@ class SearchBar extends React.Component {
       </div>
     );
   }
+  
 }
 
 export default SearchBar;

@@ -1,16 +1,6 @@
 import React from 'react';
 import { LineChart, Line, CartesianGrid, XAxis, YAxis, Tooltip } from 'recharts';
 
-const data = [
-  {name: 'Jan', uv: 4000},
-  {name: 'Feb', uv: 3000},
-  {name: 'Mar', uv: 2000},
-  {name: 'Apr', uv: 2780},
-  {name: 'May', uv: 1890},
-  {name: 'Jun', uv: 2390},
-  {name: 'Jul', uv: 3490},
-];
-
 const CustomTooltip = ({ active, payload, label }) => {
   if (active) {
     return (
@@ -23,15 +13,19 @@ const CustomTooltip = ({ active, payload, label }) => {
   return null;
 };
 
-const SimpleLineChart = () => (
-  <LineChart width={300} height={100} data={data}>
-    <Line type="monotone" dataKey="uv" stroke="#cc5500" strokeWidth={2} />
+const formatDate = (tickItem) => {
+  const date = new Date(tickItem);
+  return `${date.getMonth() + 1}-${date.getDate()}`;  // format as MM-DD
+};
+
+const SimpleLineChart = ({ data }) => (
+  <LineChart width={700} height={200} data={data}>
+    <Line type="monotone" dataKey="price" stroke="#cc5500" strokeWidth={2} />
     <CartesianGrid stroke="#aaa" />
-    <XAxis dataKey="name" stroke="#8884d8" />
+    <XAxis dataKey="date" stroke="#8884d8" tickFormatter={formatDate} />
     <YAxis stroke="#8884d8" />
     <Tooltip content={<CustomTooltip />} />
   </LineChart>
-
 );
 
 export default SimpleLineChart;
