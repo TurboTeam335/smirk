@@ -3,7 +3,7 @@
 
 Smirk is a React application that allows users to search for stock data, add stocks to their personal list, and view the latest tweets from a specific Twitter account.
 
-![Portfolio Preview](../smirk/smirk/src/assets/smirk.png)
+![Portfolio Preview](../smirk/smirk/src/assets/smirk2.png)
 
 ## Features
 
