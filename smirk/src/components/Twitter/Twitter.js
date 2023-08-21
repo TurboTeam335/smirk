@@ -1,7 +1,7 @@
 import React from "react";
 import { TwitterTimelineEmbed } from 'react-twitter-embed';
 import "bootstrap/dist/css/bootstrap.min.css";
-import "../styles/index.css";
+import "../../styles/index.css";
 
 class TwitterCard extends React.Component {
   render() {

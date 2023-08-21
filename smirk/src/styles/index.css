@@ -35,18 +35,7 @@ header {
 }
 
 /* Card */
-.card {
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  padding: 12px;
-  width: 100%;
-  margin: 0 auto;
-}
 
-.card-title {
-  font-size: 1.2rem;
-}
 
 .card-random-container {
   position: fixed;
@@ -64,7 +53,7 @@ header {
 .twitter-timeline {
   font-size: 0.8rem;
   height: 300px;
-  overflow: scroll;
+  overflow: hidden;
 }
 
 /* Random Stock */
@@ -76,16 +65,20 @@ header {
 }
 
 /* Arrow */
-.up-arrow {
-  color: green;
+.up-arrow,
+.down-arrow {
   font-size: 25px;
   font-weight: bolder;
+  margin-left: 4px;
+  vertical-align: baseline; 
+}
+
+.up-arrow {
+  color: green;
 }
 
 .down-arrow {
-  color: red; 
-  font-size: 25px;
-  font-weight: bolder;
+  color: red;
 }
 
 /* Button */
@@ -117,18 +110,12 @@ header {
   font-size: larger;
 }
 
-.chart-container {
-  /* transform: scale(0.5); */
-  transition: all 0.3s ease-in-out;
+.my-stocks-container {
+  margin-bottom: 200px; 
 }
 
 
 
-.chart-small {
-  max-width: 100%;
-  height: 100%;
-  /* overflow: hidden; */
-}
 
 
 

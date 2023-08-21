@@ -1,0 +1,61 @@
+/* Card */
+.card {
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  padding: 12px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+/* Text Formatting */
+.ticker,
+.card-title {
+  font-weight: bolder;
+  font-size: 1.5rem;
+}
+
+.header-section {
+  text-align: center;
+  margin-bottom: 8px;
+}
+
+.text-section {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  text-align: center;
+  font-size: 1rem;
+  margin-bottom: 8px;
+}
+
+.stock-data-item {
+  display: flex;
+  align-items: center;
+  flex-direction: row; /* Horizontal layout by default */
+}
+
+.stock-data-item span {
+  margin-right: 8px;
+  vertical-align: middle;
+  line-height: 1.; 
+}
+
+
+
+/* Breakpoints for tablet */
+@media screen and (min-width: 577px) and (max-width: 992px) {
+  .stock-data-item {
+    flex-direction: column; /* Vertical layout on tablets */
+  }
+}
+
+
+@media screen and (max-width: 576px) {
+  .text-section {
+    justify-content: flex-start; /* Aligns the items to the left */
+  }
+  .stock-data-item {
+    flex-direction: row; /* Horizontal layout on mobile, one item per row */
+  }
+}
